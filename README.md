@@ -1,2 +1,2 @@
 # cs_decrypt
-Decrypt .asset file for the game Counter:Side
+Decrypt/Encrypt .asset file for the game Counter:Side
