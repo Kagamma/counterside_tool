@@ -13,6 +13,7 @@ type
     DecryptSize: Int64;
   public
     constructor Create(const Path: String);
+    destructor Destroy; override;
     function Read(var Buffer; Count: Longint): Longint; override;
     function Seek(const Offset: Int64; Origin: TSeekOrigin): Int64; override;
   end;
@@ -104,6 +105,12 @@ begin
   GetMaskList(Path);
   Encrypt(DecryptedArray, DecryptSize);
   InnerStream.Seek(0, soBeginning);
+end;
+
+destructor TAssetStream.Destroy;
+begin
+  InnerStream.Free;
+  inherited;
 end;
 
 function TAssetStream.Read(var Buffer; Count: Longint): Longint;
