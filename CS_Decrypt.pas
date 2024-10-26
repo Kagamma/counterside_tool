@@ -42,7 +42,7 @@ procedure Encrypt(var Buffer: TBytes; Size: Integer);
 var
   I, DecSize, J: Integer;
   NowKey, V16, D: QWord;
-  MaskIndex: Integer;
+  MaskIndex: Integer = 0;
 begin
   if (Length(Buffer) > 0) and (Size >= 1) then
   begin
